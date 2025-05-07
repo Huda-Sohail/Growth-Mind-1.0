@@ -41,6 +41,10 @@ if uploaded_files:
         else:
             st.error(f"Unsupported file type: {file_ext}")
             continue
+        df_display = df.copy()
+        df_display = df_display.convert_dtypes()
+        df_display = df_display.astype(str)
+
 
         st.write("### Preview of the Data")
         st.dataframe(df.head())
